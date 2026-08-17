@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEONA | Content Strategy & Execution</title>
+    <style>
+        /* Apple-style typography and clean reset */
+        :root {
+            --bg-base: #f9f9fb;
+            --bg-surface: #ffffff;
+            --text-main: #000000;
+            --text-muted: #6e6e73;
+            --border-light: #e5e5ea;
+            --accent: #000000;
+            --hover-bg: #f5f5f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-action {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nav-action:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Hero Section (Modeled after image_e9e241.jpg) */
+        .hero {
+            padding: 6rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--hover-bg);
+            border-color: var(--text-muted);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero Right Graphic (CSS Phone Mockup) */
+        .hero-graphic {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 650px;
+            background: #fff;
+            border: 12px solid #1c1c1e;
+            border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12), inset 0 0 0 4px #e5e5ea;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: rotate(-2deg);
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #1c1c1e;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 10;
+        }
+
+        .phone-ui-header {
+            padding: 2.5rem 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .phone-ui-header h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-ui-graph {
+            height: 100px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.03));
+            position: relative;
+            margin: 1rem 0;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .phone-ui-graph::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 2px solid var(--accent);
+        }
+
+        .phone-ui-cards {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ui-card {
+            background: var(--bg-base);
+            border-radius: 16px;
+            padding: 1.2rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .ui-card-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .ui-card-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Sections Typography & Structure */
+        section {
+            padding: 5rem 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 700px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+
+        /* Brand Identity Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-base);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .info-card strong {
+            color: var(--text-main);
+        }
+
+        /* Pillars Grid (3 columns) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            border-color: var(--text-main);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .pillar-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--bg-base);
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            z-index: 0;
+            -webkit-text-stroke: 1px var(--border-light);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .themes-list {
+            position: relative;
+            z-index: 1;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+        
+        .themes-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .themes-list li::before {
+            content: '•';
+            position: absolute;
+            left: -1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Tables (Schedule) */
+        .table-wrapper {
+            background: var(--bg-base);
+            border-radius: 24px;
+            padding: 2rem;
+            overflow-x: auto;
+            border: 1px solid var(--border-light);
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.5rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td {
+            font-size: 0.95rem;
+        }
+        
+        td strong {
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Clean Links Section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-base);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background: var(--text-main);
+            color: var(--bg-surface);
+            border-color: var(--text-main);
+        }
+
+        .link-item svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg-surface);
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 4rem 0;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <span class="logo-icon"></span>
+            STEONA
+        </div>
+        <div class="nav-links">
+            <a href="#summary">Strategy</a>
+            <a href="#pillars">Pillars</a>
+            <a href="#schedule">Execution Plan</a>
+            <a href="#workflow">Workflow</a>
+        </div>
+        <a href="#links" class="nav-action">View References</a>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">High-Frequency Video Strategy.</h1>
+                <p class="hero-desc">Steona specializes in custom, casual and lifestyle bespoke clothing. We're shifting to a rigorous 3x daily posting schedule to establish market dominance and showcase immaculate craftsmanship globally.</p>
+                <div class="hero-buttons">
+                    <a href="#schedule" class="btn-primary">View Execution Plan</a>
+                    <a href="#pillars" class="btn-secondary">Explore 8 Pillars</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>90+</h4>
+                        <p>Posts Monthly</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>3x</h4>
+                        <p>Daily Frequency</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Bespoke Focus</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-graphic">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-ui-header">
+                        <h5>Steona Dashboard</h5>
+                        <p style="font-size: 0.8rem; color: #86868b;">Today's Engagement</p>
+                        <div class="phone-ui-graph"></div>
+                    </div>
+                    <div class="phone-ui-cards">
+                        <div class="ui-card">
+                            <div class="ui-card-title">Top Format</div>
+                            <div class="ui-card-value">GRWM (+24%)</div>
+                        </div>
+                        <div class="ui-card">
+                            <div class="ui-card-title">Conversion Focus</div>
+                            <div style="font-size: 0.9rem; margin-top: 0.5rem; color: #1d1d1f; line-height: 1.4;">WhatsApp DMs &<br>Global Orders</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Executive Summary & Brand Identity -->
+    <section id="summary">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Foundation</h2>
+                <p>Generating consistent organic reach by focusing on approachable, high-converting video formats.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>Brand Positioning</h3>
+                    <p><strong>Persona:</strong> Polished, bold, and aspirational ("bougie" yet approachable luxury).</p>
+                    <p><strong>Value Proposition:</strong> Perfect casual and lifestyle bespoke fitting, high-quality African craftsmanship, versatile styling, and seamless worldwide delivery.</p>
+                    <p><strong>Tone of Voice:</strong> Sophisticated, confident, helpful, and culturally relevant.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Audience Profile</h3>
+                    <p><strong>Primary Demographics:</strong> Men and women aged 18–45 seeking premium everyday bespoke wear.</p>
+                    <p><strong>Psychographics:</strong> Fashion-forward professionals, entrepreneurs, and trendsetters who value exclusivity, impeccable fit, and personalized lifestyle attire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Video Pillars -->
+    <section id="pillars">
+        <div class="container">
+            <div class="section-header">
+                <h2>8 Strategic Video Pillars</h2>
+                <p>Structured formats designed for scale, engagement, and conversion.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="pillar-card">
+                    <div class="pillar-num">01</div>
+                    <h3>Get Ready With Me (GRWM)</h3>
+                    <p>Fast-paced, aesthetic styling transition from base layers to fully accessorized bespoke outfits.</p>
+                    <ul class="themes-list">
+                        <li>Casual Business Lunch</li>
+                        <li>Sunday Brunch / Weekend</li>
+                        <li>Travel Two-Piece Styling</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">02</div>
+                    <h3>1 Outfit, X Ways</h3>
+                    <p>Demonstrating how a single bespoke garment spans multiple settings & dress codes.</p>
+                    <ul class="themes-list">
+                        <li>Styled 3 Ways: Errands, Coffee, Drinks</li>
+                        <li>Day & Night Transitions</li>
+                        <li>Sneakers vs. Heels/Slides</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">03</div>
+                    <h3>Real-World Lifestyle</h3>
+                    <p>Candid outdoor clips capturing casual wear in premium everyday settings.</p>
+                    <ul class="themes-list">
+                        <li>Grocery run but make it bespoke</li>
+                        <li>Coffee pickup in casual chic</li>
+                        <li>Mall stroll fit-checks</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">04</div>
+                    <h3>Shortlet & Multi-Set</h3>
+                    <p>Leveraging luxury locations to shoot varied high-end looks in single sessions.</p>
+                    <ul class="themes-list">
+                        <li>Poolside / Resort Wear</li>
+                        <li>Balcony Golden Hour</li>
+                        <li>Lounge Structured Separates</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">05</div>
+                    <h3>Craftsmanship & BTS</h3>
+                    <p>Highlighting the bespoke journey from fabric selection to final hand-stitching.</p>
+                    <ul class="themes-list">
+                        <li>Virtual measurements (Global)</li>
+                        <li>Fabric inspection & cutting</li>
+                        <li>Detail work & hand-embroidery</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">06</div>
+                    <h3>Client Spotlights</h3>
+                    <p>Client reactions, shipment packaging, and featured customer submissions.</p>
+                    <ul class="themes-list">
+                        <li>Genuine fitting reactions</li>
+                        <li>Global shipping routes map overlay</li>
+                        <li>Sketch vs. Final comparisons</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">07</div>
+                    <h3>Trend Transitions</h3>
+                    <p>Fast 5–10 second viral transition videos matched with algorithm-trending audio.</p>
+                    <ul class="themes-list">
+                        <li>Beat-synced cuts</li>
+                        <li>Snap-of-a-finger switches</li>
+                        <li>Camera spin transitions</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">08</div>
+                    <h3>Color Theory & Styling</h3>
+                    <p>Educational breakdowns of palettes, tonal combos, and accessory pairing.</p>
+                    <ul class="themes-list">
+                        <li>Monochrome vs Complementary</li>
+                        <li>Accessory Matching</li>
+                        <li>Elevating Minimalist Outfits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Execution Plan & Schedule -->
+    <section id="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2>Execution Plan & Schedule</h2>
+                <p>Maintaining consistency without burnout across peak engagement windows.</p>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time Slot (WAT)</th>
+                            <th>Content Focus</th>
+                            <th>Primary Goal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Morning (8:00–9:30 AM)</strong></td>
+                            <td>GRWM / Style Guides / Real-World Lifestyle Fits</td>
+                            <td>Drive morning engagement, saves & shares</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Midday (1:00–2:30 PM)</strong></td>
+                            <td>Picture Carousels (Lookbooks, details, color theory)</td>
+                            <td>Increase saves, swipe-through rate & aesthetics</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evening (6:00–8:00 PM)</strong></td>
+                            <td>Shortlet Multi-Set / BTS / Color Theory & Styling</td>
+                            <td>Capture peak browsing, drive WhatsApp/DM orders</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600;">30-Day Content Framework (Week 1 Example)</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Slot 1 (Morning)</th>
+                            <th>Slot 2 (Midday) Carousel</th>
+                            <th>Slot 3 (Evening)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>GRWM: Effortless Monday in tailored two-piece</td>
+                            <td>5 Tonal Color Schemes for Bespoke</td>
+                            <td>OOTD: Walking into the week</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>1 Outfit, 3 Ways: Day to Night</td>
+                            <td>Macro Close-ups: Fabric & Stitches</td>
+                            <td>BTS: Pattern drafting for order</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td>GRWM: Mid-week casual luxury</td>
+                            <td>Accessory Pairing Breakdown</td>
+                            <td>Color Theory: Earth Tones</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thursday</strong></td>
+                            <td>Style Breakdown: Pairing for skin tones</td>
+                            <td>Editorial Lookbook: Terrace Series</td>
+                            <td>Vlog: Shipping bespoke globally</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>GRWM: Weekend prep look</td>
+                            <td>Moodboard to Finished Garment</td>
+                            <td>Transition: Fabric swatch to outfit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday</strong></td>
+                            <td>OOTD: Weekend brunch chic resort wear</td>
+                            <td>Customer Spotlight (Bi-Monthly)</td>
+                            <td>Lifestyle: Shopping run in casuals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunday</strong></td>
+                            <td>GRWM: Relaxed elegant attire</td>
+                            <td>Color Theory: Contrast vs Tonal</td>
+                            <td>Artisan Focus: Hand-stitching details</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center;">*Pillars rotate weekly testing different outfits, sets, and creative direction.</p>
+        </div>
+    </section>
+
+    <!-- Workflow & Growth -->
+    <section id="workflow">
+        <div class="container">
+            <div class="section-header">
+                <h2>Production & Growth Tactics</h2>
+                <p>The operational backend to sustain 21+ pieces of weekly content.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>Batching Workflow</h3>
+                    <p><strong>Dedicated Filming (1x Weekly):</strong> One full day or two half-days to shoot 10–12 looks.</p>
+                    <p><strong>Lighting & Audio:</strong> Natural daylight / softbox. Wireless lapel mic for clear voiceovers.</p>
+                    <p><strong>Camera:</strong> 4K at 60fps, downsampled for TikTok/Reels.</p>
+                    <p><strong>Templates:</strong> Pre-written hooks ("Stop scrolling if...") and standardized CTAs for international shipping.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Growth & Conversion</h3>
+                    <p><strong>Influencers:</strong> Monthly micro/macro collaborations wearing bespoke lifestyle outfits.</p>
+                    <p><strong>Paid Social:</strong> Boost high-performing organic GRWM and styling videos globally.</p>
+                    <p><strong>Automated Funnel:</strong> ManyChat automated DM responses for "FIT" or "BESPOKE" keywords.</p>
+                    <p><strong>Linktree:</strong> Direct funnels to [Book Fitting], [WhatsApp], and [Order Guides].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links / References -->
+    <section id="links">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visual References</h2>
+                <p>Cleaned repository of inspirational content and styling benchmarks.</p>
+            </div>
+            
+            <div class="links-grid">
+
+                <a href="https://www.instagram.com/reel/DbwiVoSpZtu/" target="_blank" class="link-item">
+                    <span>Reference 1</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DDW2aUNSa6u/" target="_blank" class="link-item">
+                    <span>Reference 2</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DRhp42KDlUp/" target="_blank" class="link-item">
+                    <span>Reference 3</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DRM9_M8iGWM/" target="_blank" class="link-item">
+                    <span>Reference 4</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DQPl727gBoG/" target="_blank" class="link-item">
+                    <span>Reference 5</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DRVN_URkqVE/" target="_blank" class="link-item">
+                    <span>Reference 6</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DIbjA8CsJUf/" target="_blank" class="link-item">
+                    <span>Reference 7</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DWyKvswk1w3/" target="_blank" class="link-item">
+                    <span>Reference 8</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DFQWowexoDE/" target="_blank" class="link-item">
+                    <span>Reference 9</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DXp8rdUjPia/" target="_blank" class="link-item">
+                    <span>Reference 10</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DaGAbrasAlZ/" target="_blank" class="link-item">
+                    <span>Reference 11</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DaGk-xfsMfa/" target="_blank" class="link-item">
+                    <span>Reference 12</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/Dbk3UGyMwOX/" target="_blank" class="link-item">
+                    <span>Reference 13</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DYZH3CDs6v6/" target="_blank" class="link-item">
+                    <span>Reference 14</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/Dbwn2w3APVc/" target="_blank" class="link-item">
+                    <span>Reference 15</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/Db8kc8CIuOE/" target="_blank" class="link-item">
+                    <span>Reference 16</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DblNa7eAHgK/" target="_blank" class="link-item">
+                    <span>Reference 17</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DWEqQufj2Dr/" target="_blank" class="link-item">
+                    <span>Reference 18</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DOX-8oZCNjE/" target="_blank" class="link-item">
+                    <span>Reference 19</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DV_dITzgIU1/" target="_blank" class="link-item">
+                    <span>Reference 20</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DA9UEA1yfXo/" target="_blank" class="link-item">
+                    <span>Reference 21</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DYSwD-gM9IO/" target="_blank" class="link-item">
+                    <span>Reference 22</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/Cyv7nimIfT1/" target="_blank" class="link-item">
+                    <span>Reference 23</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/Dax37Pcxa48/" target="_blank" class="link-item">
+                    <span>Reference 24</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DMr6FAGCvyO/" target="_blank" class="link-item">
+                    <span>Reference 25</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DJ91IrsSbZd/" target="_blank" class="link-item">
+                    <span>Reference 26</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DaxXE-5NE8x/" target="_blank" class="link-item">
+                    <span>Reference 27</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DCwuKDptD94/" target="_blank" class="link-item">
+                    <span>Reference 28</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DYeufyjyjCG/" target="_blank" class="link-item">
+                    <span>Reference 29</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/C6OtfjFNZEi/" target="_blank" class="link-item">
+                    <span>Reference 30</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DVGKmLJDHZJ/" target="_blank" class="link-item">
+                    <span>Reference 31</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DJmKkMwznVx/" target="_blank" class="link-item">
+                    <span>Reference 32</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/reel/DaVY02buuDc/" target="_blank" class="link-item">
+                    <span>Reference 33</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 STEONA. Confidential Strategy Document.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
